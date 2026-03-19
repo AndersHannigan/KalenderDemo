@@ -49,9 +49,7 @@ export function CalendarGrid({
         <div className="h-full overflow-auto px-3 py-3 md:px-4">
           <div className="calendar-board min-w-[72rem]">
             <div className="calendar-header-grid">
-              <div className="calendar-corner">
-                <span className="scribble-label text-[1.2rem] leading-none">Rows</span>
-              </div>
+              <div aria-hidden="true" className="calendar-header-spacer" />
               {TIME_BLOCKS.map((block) => (
                 <TimeHeader key={block.key} block={block} />
               ))}

@@ -36,8 +36,8 @@ export function TasksPanel({
 
   return (
     <PanelFrame
-      title="Task stack"
-      subtitle="Unscheduled tasks live here. Drag a scheduled card back to this tray to unschedule it."
+      title="Fagkort"
+      kicker={null}
       tilt="left"
       className="overflow-hidden"
     >
@@ -48,11 +48,6 @@ export function TasksPanel({
           activeDrag?.type === 'task' && isOver && 'drop-target-valid',
         )}
       >
-        <div className="mb-3 flex items-center justify-between gap-3 px-1">
-          <span className="mini-label">{taskIds.length} waiting</span>
-          <span className="mini-label">drag to calendar</span>
-        </div>
-
         <div className="inventory-scroll flex max-h-[34rem] flex-col gap-3 overflow-y-auto pr-1">
           {taskIds.length > 0 ? (
             taskIds.map((taskId) => (
@@ -71,9 +66,9 @@ export function TasksPanel({
               animate={{ opacity: 1, scale: 1 }}
               className="empty-panel-state"
             >
-              <p className="scribble-label text-[1.2rem]">All tasks scheduled</p>
+              <p className="scribble-label text-[1.2rem]">Alle fag er planlagt</p>
               <p className="mt-2 text-[0.95rem] text-[color:var(--foreground-soft)]">
-                Pull any task back here if plans change.
+                Dra et kort tilbake hit hvis planen endrer seg.
               </p>
             </motion.div>
           )}

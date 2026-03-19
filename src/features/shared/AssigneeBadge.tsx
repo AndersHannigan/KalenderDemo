@@ -12,10 +12,10 @@ type AssigneeBadgeProps = {
 }
 
 const labelByScope = {
-  row: 'Lane owner',
-  task: 'Task owner',
-  inherited: 'Via row',
-  empty: 'Unassigned',
+  row: 'Radansvarlig',
+  task: 'Ansvarlig',
+  inherited: 'Via rad',
+  empty: 'Ikke tildelt',
 } as const
 
 export function AssigneeBadge({
@@ -29,7 +29,8 @@ export function AssigneeBadge({
 }: AssigneeBadgeProps) {
   const label = labelOverride ?? labelByScope[scope]
   const effectiveClearLabel =
-    clearLabel ?? `Clear ${scope === 'row' ? 'row' : 'task'} assignee`
+    clearLabel ?? `Fjern ${scope === 'row' ? 'radansvarlig' : 'ansvarlig'}`
+  const showCompactEmptyMarker = density === 'compact' && !person
 
   return (
     <div
@@ -40,6 +41,7 @@ export function AssigneeBadge({
         density === 'compact' && 'assignee-badge--compact',
         density === 'compact' && showCompactName && 'assignee-badge--compact-name',
       )}
+      aria-label={showCompactEmptyMarker ? label : undefined}
     >
       {person ? (
         <>
@@ -87,6 +89,11 @@ export function AssigneeBadge({
             </span>
           ) : null}
         </>
+      ) : showCompactEmptyMarker ? (
+        <>
+          <span aria-hidden="true" className="assignee-badge__empty-mark" data-testid="empty-assignee-marker" />
+          <span className="sr-only">{label}</span>
+        </>
       ) : (
         <span className={cx(density === 'compact' ? 'text-[0.86rem]' : 'text-[0.92rem]')}>
           {label}
@@ -100,7 +107,7 @@ export function AssigneeBadge({
           onClick={onClear}
           aria-label={effectiveClearLabel}
         >
-          clear
+          fjern
         </button>
       ) : null}
     </div>

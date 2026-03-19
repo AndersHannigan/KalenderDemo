@@ -53,7 +53,7 @@ export function PersonCard({ person, activeDrag }: PersonCardProps) {
         <span className="min-w-0 flex-1 text-left">
           <span className="block truncate text-[1.02rem] leading-none">{person.name}</span>
           <span className="mt-1 block text-[0.8rem] uppercase tracking-[0.08em] text-[color:var(--foreground-soft)]">
-            Drag to a lane or task
+            Dra til rad eller kort
           </span>
         </span>
       </motion.button>

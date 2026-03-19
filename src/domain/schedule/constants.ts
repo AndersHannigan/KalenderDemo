@@ -1,7 +1,7 @@
 import type { TimeBlock, TimeKey } from './types.ts'
 
 export const STORAGE_KEY = 'scheduler-mvp:v1'
-export const STORAGE_VERSION = 1
+export const STORAGE_VERSION = 2
 
 export const TIME_BLOCKS = [
   { key: '08:30', label: '08:30-09:30', start: '08:30', end: '09:30' },

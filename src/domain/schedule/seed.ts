@@ -10,11 +10,11 @@ function toRecord<T extends { id: string }>(items: T[]) {
 
 export function createSeedPlannerState(): PlannerState {
   const rows: RowGroup[] = [
-    { id: 'row-front-desk', name: 'Block 1', assignedPersonId: null },
-    { id: 'row-main-room', name: 'Block 2', assignedPersonId: null },
-    { id: 'row-breakout', name: 'Block 3', assignedPersonId: null },
-    { id: 'row-support-desk', name: 'Block 4', assignedPersonId: 'person-liv-p' },
-    { id: 'row-wrap-crew', name: 'Block 5', assignedPersonId: null },
+    { id: 'row-front-desk', name: 'Blokk 1', assignedPersonId: null },
+    { id: 'row-main-room', name: 'Blokk 2', assignedPersonId: null },
+    { id: 'row-breakout', name: 'Blokk 3', assignedPersonId: null },
+    { id: 'row-support-desk', name: 'Blokk 4', assignedPersonId: 'person-liv-p' },
+    { id: 'row-wrap-crew', name: 'Blokk 5', assignedPersonId: null },
   ]
 
   const people: Person[] = [
@@ -59,14 +59,14 @@ export function createSeedPlannerState(): PlannerState {
   const tasks: Task[] = [
     {
       id: 'task-signage',
-      title: 'Prep signage',
+      title: 'Matte 6C',
       color: '#fff9c4',
       location: { kind: 'inventory' },
       assignedPersonId: null,
     },
     {
       id: 'task-sound-check',
-      title: 'Sound check',
+      title: 'Norsk 8A',
       color: '#d6ecff',
       location: {
         kind: 'calendar',
@@ -77,14 +77,14 @@ export function createSeedPlannerState(): PlannerState {
     },
     {
       id: 'task-coffee-setup',
-      title: 'Coffee setup',
+      title: 'Engelsk 7B',
       color: '#fff9c4',
       location: { kind: 'inventory' },
       assignedPersonId: null,
     },
     {
       id: 'task-speaker-welcome',
-      title: 'Speaker welcome',
+      title: 'Naturfag 9D',
       color: '#ffd7c2',
       location: {
         kind: 'calendar',
@@ -95,7 +95,7 @@ export function createSeedPlannerState(): PlannerState {
     },
     {
       id: 'task-tech-rehearsal',
-      title: 'Tech rehearsal',
+      title: 'Samfunnsfag 8C',
       color: '#d6ecff',
       location: {
         kind: 'calendar',
@@ -106,7 +106,7 @@ export function createSeedPlannerState(): PlannerState {
     },
     {
       id: 'task-badge-pickup',
-      title: 'Badge pickup',
+      title: 'Kunst og håndverk 6B',
       color: '#fff9c4',
       location: {
         kind: 'calendar',
@@ -117,14 +117,14 @@ export function createSeedPlannerState(): PlannerState {
     },
     {
       id: 'task-lunch-layout',
-      title: 'Lunch layout',
+      title: 'Musikk 5A',
       color: '#ffd7c2',
       location: { kind: 'inventory' },
       assignedPersonId: null,
     },
     {
       id: 'task-photo-corner',
-      title: 'Photo corner',
+      title: 'Kroppsøving 9A',
       color: '#d4edc8',
       location: {
         kind: 'calendar',
@@ -135,14 +135,14 @@ export function createSeedPlannerState(): PlannerState {
     },
     {
       id: 'task-wrap-notes',
-      title: 'Wrap notes',
+      title: 'Historie 10B',
       color: '#e3d7ff',
       location: { kind: 'inventory' },
       assignedPersonId: null,
     },
     {
       id: 'task-volunteer-check-in',
-      title: 'Volunteer check-in',
+      title: 'KRLE 7C',
       color: '#d4edc8',
       location: {
         kind: 'calendar',

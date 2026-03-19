@@ -28,7 +28,7 @@ export function DragOverlayCard({ task, person }: DragOverlayCardProps) {
         className="paper-card drag-overlay-card max-w-[16rem] p-3"
         style={{ backgroundColor: task.color }}
       >
-        <p className="panel-kicker">Moving task</p>
+        <p className="panel-kicker">Flytter kort</p>
         <p className="mt-1 text-[1.12rem] leading-tight">{task.title}</p>
       </motion.div>
     )
@@ -50,7 +50,7 @@ export function DragOverlayCard({ task, person }: DragOverlayCardProps) {
       <span className="text-left">
         <span className="block text-[1.04rem] leading-none">{person.name}</span>
         <span className="mt-1 block text-[0.8rem] uppercase tracking-[0.08em] text-[color:var(--foreground-soft)]">
-          Assigning person
+          Tildeler person
         </span>
       </span>
     </motion.div>

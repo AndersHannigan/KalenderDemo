@@ -19,11 +19,11 @@ function toFirstName(name: string) {
 
 function toPossessiveTasksLabel(firstName: string) {
   if (!firstName) {
-    return 'Assigned tasks'
+    return 'Tildelte timer'
   }
 
-  const suffix = /s$/i.test(firstName) ? "'" : "'s"
-  return `${firstName}${suffix} tasks`
+  const suffix = /s$/i.test(firstName) ? "'" : 's'
+  return `${firstName}${suffix} timer`
 }
 
 export function buildCellKey(rowId: string, timeKey: TimeKey) {

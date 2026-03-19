@@ -12,16 +12,11 @@ export function PeoplePanel({ activeDrag }: PeoplePanelProps) {
 
   return (
     <PanelFrame
-      title="People deck"
-      subtitle="Drop a person onto a task for a direct assignment, or onto a row header to assign the whole lane."
+      title="Personer"
+      kicker={null}
       tilt="right"
       className="overflow-hidden"
     >
-      <div className="mb-3 flex items-center justify-between gap-3 px-1">
-        <span className="mini-label">{state.personOrder.length} available</span>
-        <span className="mini-label">drag to assign</span>
-      </div>
-
       <div className="flex max-h-[34rem] flex-col gap-3 overflow-y-auto pr-1">
         {state.personOrder.map((personId) => (
           <PersonCard

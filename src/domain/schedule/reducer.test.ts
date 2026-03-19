@@ -119,7 +119,7 @@ describe('plannerReducer', () => {
   it('derives the row display name from the assigned person first name', () => {
     const state = createSeedPlannerState()
 
-    expect(selectRowDisplayName(state, 'row-front-desk')).toBe('Block 1')
-    expect(selectRowDisplayName(state, 'row-support-desk')).toBe("Liv's tasks")
+    expect(selectRowDisplayName(state, 'row-front-desk')).toBe('Blokk 1')
+    expect(selectRowDisplayName(state, 'row-support-desk')).toBe('Livs timer')
   })
 })

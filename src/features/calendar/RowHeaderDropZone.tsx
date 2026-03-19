@@ -81,7 +81,7 @@ export function RowHeaderDropZone({
       className="row-owner-avatar-shell"
       title={animatedPerson.name}
       role="img"
-      aria-label={`Lane owner: ${animatedPerson.name}`}
+      aria-label={`Radansvarlig: ${animatedPerson.name}`}
       initial={
         shouldAnimateAssignment
           ? { x: 88, opacity: 0.92, scale: 0.92, rotate: 5 }
@@ -108,7 +108,7 @@ export function RowHeaderDropZone({
             event.stopPropagation()
             onClearRowAssignee(row.id)
           }}
-          aria-label="Clear row assignee"
+          aria-label="Fjern radansvarlig"
         >
           <span aria-hidden="true">x</span>
         </button>
@@ -127,7 +127,7 @@ export function RowHeaderDropZone({
         canAcceptPerson && isOver && 'drop-target-valid',
         isSelected && 'selection-active',
       )}
-      aria-label={`Assign person to ${displayName}`}
+      aria-label={`Tildel person til ${displayName}`}
     >
       <motion.div
         layout
@@ -136,7 +136,7 @@ export function RowHeaderDropZone({
         className="row-header-button"
         onClick={openDetails}
         onKeyDown={handleKeyDown}
-        aria-label={`Open ${displayName} details`}
+        aria-label={`Åpne detaljer for ${displayName}`}
         aria-haspopup="dialog"
         aria-expanded={isSelected}
       >
@@ -170,7 +170,7 @@ export function RowHeaderDropZone({
                 canAcceptPerson && isOver && 'row-drop-hint--active',
               )}
             >
-              {showPersonDropReady ? 'Drop person' : '+ Assign'}
+              {showPersonDropReady ? 'Slipp person' : '+ Tildel'}
             </span>
           ) : null}
         </div>

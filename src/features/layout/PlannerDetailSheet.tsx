@@ -83,21 +83,21 @@ export function PlannerDetailSheet({
             <p className="panel-kicker">Status</p>
             <p className="detail-sheet__lead">
               {isScheduled
-                ? `${rowDisplayName ?? 'Lane'} · ${getTimeBlockLabel(scheduledLocation.timeKey)}`
-                : 'Waiting in the task inventory'}
+                ? `${rowDisplayName ?? 'Raden'} · ${getTimeBlockLabel(scheduledLocation.timeKey)}`
+                : 'Ligger i faglisten'}
             </p>
           </div>
 
           {isScheduled ? (
             <div className="detail-sheet__block">
-              <p className="panel-kicker">Assignment</p>
+              <p className="panel-kicker">Tildeling</p>
               <AssigneeBadge person={effectiveAssignee} scope={detailScope} />
               <p className="detail-sheet__copy">
                 {assignmentMode === 'row'
-                  ? `This task inherits its assignee from ${rowDisplayName ?? 'the row'}.`
+                  ? `Dette kortet arver ansvarlig person fra ${rowDisplayName ?? 'raden'}.`
                   : assignmentMode === 'task'
-                    ? 'This task is assigned directly.'
-                    : 'No person is assigned to this task yet.'}
+                    ? 'Dette kortet er tildelt direkte.'
+                    : 'Ingen person er tildelt dette kortet ennå.'}
               </p>
               {assignmentMode === 'task' ? (
                 <button
@@ -105,15 +105,15 @@ export function PlannerDetailSheet({
                   className="detail-sheet__action"
                   onClick={() => dispatch({ type: 'clearTaskAssignee', taskId: task.id })}
                 >
-                  Clear task assignee
+                  Fjern ansvarlig
                 </button>
               ) : null}
             </div>
           ) : (
             <div className="detail-sheet__block">
-              <p className="panel-kicker">Next move</p>
+              <p className="panel-kicker">Neste steg</p>
               <p className="detail-sheet__copy">
-                Drag this card into any empty calendar cell to schedule it.
+                Dra dette kortet inn i en tom celle for å planlegge det.
               </p>
             </div>
           )}
@@ -134,12 +134,12 @@ export function PlannerDetailSheet({
       body = (
         <div className="detail-sheet__stack">
           <div className="detail-sheet__block">
-            <p className="panel-kicker">Row assignment</p>
+            <p className="panel-kicker">Radtildeling</p>
             <AssigneeBadge person={rowAssignee} scope={rowAssignee ? 'row' : 'empty'} />
             <p className="detail-sheet__copy">
               {rowAssignee
-                ? 'This person controls every task in the row until the row assignment is cleared.'
-                : 'Drop a person onto the row header to assign the entire lane.'}
+                ? 'Denne personen styrer alle kortene i raden til radtildelingen fjernes.'
+                : 'Slipp en person på radoverskriften for å tildele hele raden.'}
             </p>
             {rowAssignee ? (
               <button
@@ -147,13 +147,13 @@ export function PlannerDetailSheet({
                 className="detail-sheet__action"
                 onClick={() => onClearRowAssignee(row.id)}
               >
-                Clear row assignee
+                Fjern radansvarlig
               </button>
             ) : null}
           </div>
 
           <div className="detail-sheet__block">
-            <p className="panel-kicker">Scheduled tasks</p>
+            <p className="panel-kicker">Planlagte fag</p>
             {rowTasks.length > 0 ? (
               <div className="detail-sheet__list">
                 {rowTasks.map((task) => (
@@ -169,7 +169,7 @@ export function PlannerDetailSheet({
                 ))}
               </div>
             ) : (
-              <p className="detail-sheet__copy">No tasks are scheduled in this row.</p>
+              <p className="detail-sheet__copy">Ingen fag er planlagt på denne raden.</p>
             )}
           </div>
         </div>
@@ -184,7 +184,7 @@ export function PlannerDetailSheet({
           <motion.button
             key="planner-detail-backdrop"
             type="button"
-            aria-label="Close details"
+            aria-label="Lukk detaljer"
             className="planner-detail-backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -205,7 +205,7 @@ export function PlannerDetailSheet({
           >
             <div className="detail-sheet__topbar">
               <div>
-                <p className="panel-kicker">Details</p>
+                <p className="panel-kicker">Detaljer</p>
                 <h3 id="planner-detail-title" className="scribble-label text-[1.6rem] leading-none">
                   {title}
                 </h3>
@@ -216,7 +216,7 @@ export function PlannerDetailSheet({
                 className="detail-sheet__close"
                 onClick={onClose}
               >
-                Close
+                Lukk
               </button>
             </div>
             {body}

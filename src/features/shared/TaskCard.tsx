@@ -168,7 +168,7 @@ export function TaskCard({
           isSelected && 'selection-active',
         )}
         style={{ backgroundColor: task.color }}
-        aria-label={`Task ${task.title}`}
+        aria-label={`Kort ${task.title}`}
         aria-haspopup="dialog"
         aria-expanded={isSelected}
         data-person-drop-disabled={isScheduled && !personDropEnabled ? 'true' : 'false'}
@@ -192,13 +192,13 @@ export function TaskCard({
             person={effectiveAssignee}
             scope={badgeScope}
             density="compact"
-            labelOverride={isScheduled ? undefined : 'Open'}
+            labelOverride={isScheduled ? undefined : 'Ikke tildelt'}
             onClear={
               canClearDirectAssignee
                 ? () => dispatch({ type: 'clearTaskAssignee', taskId: task.id })
                 : undefined
             }
-            clearLabel="Clear task assignee"
+            clearLabel="Fjern ansvarlig"
           />
         </div>
       </motion.article>
