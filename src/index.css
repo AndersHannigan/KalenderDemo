@@ -369,28 +369,36 @@ button:focus-visible,
   min-height: 4.35rem;
   height: 100%;
   width: 100%;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px dashed rgba(45, 45, 45, 0.22);
   border-radius: calc(var(--radius-c) - 8px);
   padding: 0.45rem;
-  text-align: center;
-  background: transparent;
+  color: rgba(45, 45, 45, 0.38);
+  background: rgba(255, 255, 255, 0.1);
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease;
 }
 
 .empty-cell-state--ready {
+  color: var(--accent);
   background: rgba(255, 77, 77, 0.08);
-  border-color: rgba(255, 77, 77, 0.45);
 }
 
-.empty-cell-state__dot {
-  width: 0.9rem;
-  height: 0.9rem;
-  border: 2px solid var(--border);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 2px 2px 0 var(--border);
+.empty-cell-state__glyph {
+  width: 1.75rem;
+  height: 1.75rem;
+  opacity: 0.78;
+  transform: rotate(-5deg) scale(1);
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease,
+    color 0.16s ease;
+}
+
+.empty-cell-state--ready .empty-cell-state__glyph {
+  opacity: 1;
+  transform: rotate(-3deg) scale(1.08);
 }
 
 .task-card {

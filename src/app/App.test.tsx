@@ -31,6 +31,14 @@ describe('App', () => {
     expect(within(dialog).getByText(/this task is assigned directly/i)).toBeInTheDocument()
   })
 
+  it('removes the calendar panel header while keeping the side panel headers', () => {
+    render(<App />)
+
+    expect(screen.queryByText('Paper planner')).not.toBeInTheDocument()
+    expect(screen.queryByText(/drag tasks into open blocks/i)).not.toBeInTheDocument()
+    expect(screen.getAllByText('Planner MVP')).toHaveLength(2)
+  })
+
   it('opens row details with owner and scheduled tasks', async () => {
     const user = userEvent.setup()
     render(<App />)
@@ -196,6 +204,35 @@ describe('App', () => {
     render(<App />)
 
     expect(screen.queryByLabelText(/open block 1 09:30 slot details/i)).not.toBeInTheDocument()
+  })
+
+  it('renders drag glyphs in empty cells and tints them during task drag', () => {
+    const { container } = render(<App />)
+
+    expect(screen.getAllByTestId('empty-cell-glyph').length).toBeGreaterThan(0)
+    expect(screen.queryByText(/drop task here/i)).not.toBeInTheDocument()
+
+    const taskCard = screen.getByLabelText(/task prep signage/i)
+
+    fireEvent.pointerDown(taskCard, {
+      button: 0,
+      clientX: 10,
+      clientY: 10,
+      pointerId: 1,
+      pointerType: 'mouse',
+      isPrimary: true,
+    })
+    fireEvent.pointerMove(taskCard, {
+      button: 0,
+      clientX: 30,
+      clientY: 30,
+      pointerId: 1,
+      pointerType: 'mouse',
+      isPrimary: true,
+    })
+
+    expect(container.querySelectorAll('.empty-cell-state--ready').length).toBeGreaterThan(0)
+    expect(screen.queryByText(/drop task here/i)).not.toBeInTheDocument()
   })
 
   it('uses block labels for unassigned rows and assigned labels for owned rows', () => {

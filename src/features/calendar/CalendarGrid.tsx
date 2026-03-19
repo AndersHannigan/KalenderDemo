@@ -1,10 +1,11 @@
+import { motion } from 'framer-motion'
+
 import { TIME_BLOCKS } from '../../domain/schedule/constants.ts'
 import { selectCellTaskIdMap } from '../../domain/schedule/selectors.ts'
 import type { PlannerDragItem } from '../../domain/schedule/dnd.ts'
 import { PlannerDetailSheet } from '../layout/PlannerDetailSheet.tsx'
 import type { PlannerSelection } from '../layout/plannerSelection.ts'
 import { useSchedule } from '../schedule/useSchedule.ts'
-import { PanelFrame } from '../shared/PanelFrame.tsx'
 import { RowLane } from './RowLane.tsx'
 import { TimeHeader } from './TimeHeader.tsx'
 
@@ -38,10 +39,11 @@ export function CalendarGrid({
   const cellTaskMap = selectCellTaskIdMap(state)
 
   return (
-    <PanelFrame
-      title="Paper planner"
-      subtitle="Drag tasks into open blocks. Drop people on tasks or whole rows."
-      className="relative min-h-[44rem] overflow-hidden"
+    <motion.section
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.24, ease: 'easeOut' }}
+      className="flex min-h-[44rem] flex-col"
     >
       <div className="planner-grid-frame relative flex-1 overflow-hidden rounded-[28px] border-[2px] border-[var(--border)] bg-[var(--paper-strong)]">
         <div className="h-full overflow-auto px-3 py-3 md:px-4">
@@ -79,6 +81,6 @@ export function CalendarGrid({
           onSelectTask={(taskId) => onOpenSelection({ kind: 'task', taskId })}
         />
       </div>
-    </PanelFrame>
+    </motion.section>
   )
 }
